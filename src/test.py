@@ -107,6 +107,7 @@ def test(data_loader):
 
     # Check if total is zero to avoid division by zero
     if total == 0:
+        print("total...... : " + total)
         accuracy = 0.0
     else:
         accuracy = correct / total

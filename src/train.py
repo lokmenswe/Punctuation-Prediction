@@ -167,6 +167,14 @@ def test(data_loader):
                     fn[cor] += 1
                     fp[prd] += 1
                 cm[cor][prd] += 1
+
+    # Check if total is zero to avoid division by zero
+    if total == 0:
+        print("total...... : " + total)
+        accuracy = 0.0
+    else:
+        accuracy = correct / total
+                    
     # ignore first index which is for no punctuation
     tp[-1] = np.sum(tp[1:])
     fp[-1] = np.sum(fp[1:])
