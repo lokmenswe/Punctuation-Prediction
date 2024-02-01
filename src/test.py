@@ -90,7 +90,7 @@ def test(data_loader):
             y_mask = y_mask.view(-1)
             correct += torch.sum(y_mask * (y_predict == y).long()).item()
             total += torch.sum(y_mask).item()
-            print("total : "+ total + "   torch.sum(y_mask).item(): " + torch.sum(y_mask).item())
+            print("total : ", total , "   torch.sum(y_mask).item(): " + torch.sum(y_mask).item())
             for i in range(y.shape[0]):
                 if y_mask[i] == 0:
                     # we can ignore this because we know there won't be any punctuation in this position
@@ -107,7 +107,7 @@ def test(data_loader):
 
     # Check if total is zero to avoid division by zero
     if total == 0:
-        print("total...... : " + total)
+        print("total...... : " , total)
         accuracy = 0.0
     else:
         accuracy = correct / total
