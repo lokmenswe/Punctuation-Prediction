@@ -154,6 +154,20 @@ def test(data_loader):
             correct += torch.sum(y_mask * (y_predict == y).long()).item()
             total += torch.sum(y_mask).item()
             print("total : ", total , "   torch.sum(y_mask).item(): " , torch.sum(y_mask).item())
+
+            #initial value of tp, fn, fp 
+            print("tp initial values : ")
+            for x in range(0, 5):
+                print(tp[x])
+
+            print("fp initial values : ")
+            for x in range(0, 5):
+                print(fp[x])
+            
+            print("fn initial values : ")
+            for x in range(0, 5):
+                print(fn[x])
+
             for i in range(y.shape[0]):
                 if y_mask[i] == 0:
                     # we can ignore this because we know there won't be any punctuation in this position
@@ -167,7 +181,27 @@ def test(data_loader):
                     fn[cor] += 1
                     fp[prd] += 1
                 cm[cor][prd] += 1
+            
 
+            #final values of tp, fn, fp 
+            print("tp final values : ")
+            for x in range(0, 5):
+                print(tp[x])
+
+            print("fp final values : ")
+            for x in range(0, 5):
+                print(fp[x])
+            
+            print("fn final values : ")
+            for x in range(0, 5):
+                print(fn[x])
+
+            print("confusion matrix final : ")
+            for x in range(0, 4)
+                for y in range(0, 4)
+                    print(cm[x][y])
+
+    
     # Check if total is zero to avoid division by zero
     if total == 0:
         print("total...... : " , total)
