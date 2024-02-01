@@ -135,8 +135,8 @@ def test(data_loader):
                 print(fn[x])
 
             print("confusion matrix final : ")
-            for x in range(0, 4)
-                for y in range(0, 4)
+            for x in range(0, 4):
+                for y in range(0, 4):
                     print(cm[x][y])
 
     # Check if total is zero to avoid division by zero
